@@ -2,7 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import * as dotenv from "dotenv";
-import authRouter from "./auth";
+import authRouter from "./auth.js";
 
 // Load .env in development
 dotenv.config();
