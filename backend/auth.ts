@@ -1,7 +1,7 @@
 import { Router } from "express";
 import type { Request, Response } from "express";
-import { generateState, setStateCookie, getStateCookie, clearStateCookie } from "./oauth-state";
-import { createSession, destroySession, getSession } from "./session";
+import { generateState, setStateCookie, getStateCookie, clearStateCookie } from "./oauth-state.js";
+import { createSession, destroySession, getSession } from "./session.js";
 
 const router = Router();
 
