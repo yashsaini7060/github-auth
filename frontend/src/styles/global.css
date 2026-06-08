@@ -1,0 +1,56 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:           #0d1117;
+  --surface:      #161b22;
+  --surface-2:    #1c2128;
+  --border:       #30363d;
+  --border-muted: #21262d;
+  --text-1:       #e6edf3;
+  --text-2:       #8b949e;
+  --text-3:       #6e7681;
+  --green:        #238636;
+  --green-hover:  #2ea043;
+  --blue:         #58a6ff;
+  --blue-subtle:  rgba(88,166,255,0.08);
+  --amber:        #d29922;
+  --red:          #da3633;
+  --red-subtle:   rgba(218,54,51,0.12);
+
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'Berkeley Mono', 'SFMono-Regular', Consolas, monospace;
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow:    0 4px 16px rgba(0,0,0,0.5);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
