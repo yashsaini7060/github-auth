@@ -8,10 +8,13 @@ export function generateState(): string {
 }
 
 export function setStateCookie(res: Response, state: string): void {
+  const isProd = process.env.NODE_ENV === "production";
   res.cookie(STATE_COOKIE, state, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: isProd,
+    // Cross-site (frontend on Vercel, backend on Railway) requires SameSite=None
+    // so the cookie survives the redirect from github.com back to /auth/callback.
+    sameSite: isProd ? "none" : "lax",
     maxAge: 10 * 60 * 1000, // 10 minutes
     path: "/",
   });

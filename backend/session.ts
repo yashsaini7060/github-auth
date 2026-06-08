@@ -39,10 +39,13 @@ export function createSession(res: Response, data: SessionData): void {
   const signature = sign(payload, secret);
   const cookie = `${payload}.${signature}`;
 
+  const isProd = process.env.NODE_ENV === "production";
   res.cookie(SESSION_COOKIE, cookie, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: isProd,
+    // Cross-site (frontend on Vercel, backend on Railway) requires SameSite=None
+    // so the cookie is sent on fetch() requests with credentials: "include".
+    sameSite: isProd ? "none" : "lax",
     maxAge: MAX_AGE_SECONDS * 1000, // express uses ms
     path: "/",
   });
